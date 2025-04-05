@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layouts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <span class="contact-info">✉️ Test@gmail.com | ☎️ 1111141514</span>
+            <span class="hours">⏰ 8:00 AM until 6:00 PM</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Products</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Basic Brew</a></li>
+                        <li><a href="#">Artisan Brew</a></li>
+                        <li><a href="#">Non-Coffee</a></li>
+                        <li><a href="#">Hot Beverages</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Activities</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Coming soon</a></li>
+                        <li><a href="#">Current</a></li>
+                        <li><a href="#">Past Activities</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Enquiry</a></li>
+                <li><a href="#">Membership Registration</a></li>
+                <li>
+                    <a href="#">Profile Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="profile1.html">Profile 1</a></li>
+                        <li><a href="profile2.html">Profile 2</a></li>
+                        <li><a href="profile3.html">Profile 3</a></li>
+                        <li><a href="profile4.html">Profile 4</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="login-btn">Login</button>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1 id="coming_soon_header">Coming Soon!</h1>
+            <figure>
+                <img src="images/brewngo.jpg" alt="brewngo" id="brew">
+                <figcaption>Brew & Go. Coffee</figcaption>
+            </figure>
+            <aside id="coming_soon_txt">
+                <h2>No New Activities Planned</h2>
+                <p>Follow our socials to get updated on upcoming activities</p>
+                <a href="https://www.facebook.com/people/Brew-Go-Coffee/61554234958482/">
+                    <img src="images/facebook.jpg" alt="facebook" id="fb_link">
+                </a>
+                <a href="https://www.instagram.com/brewngo.coffee">
+                    <img src="images/instagram.jpg" alt="instagram" id="insta_link">
+                </a>
+            </aside>
+        </section>
+    </main>
+    <footer>
+        <nav class="footer-nav">
+            <div class="footer-dropdown">
+                <a href="#">Products</a>
+                <div class="footer-dropdown-content">
+                    <a href="#">Product A</a>
+                    <a href="#">Product B</a>
+                    <a href="#">Product C</a>
+                </div>
+            </div>
+            <div class="footer-dropdown">
+                <a href="#">Activities</a>
+                <div class="footer-dropdown-content">
+                    <a href="#">Activity A</a>
+                    <a href="#">Activity B</a>
+                    <a href="#">Activity C</a>
+                </div>
+            </div>
+            <a href="#">Join Us</a>
+            <a href="#">Membership Registration</a>
+            <a href="#">Profile Page</a>
+        </nav>
+        <button class="contact-btn">Contact Us</button>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

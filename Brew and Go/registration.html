@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <span class="contact-info">✉️ Test@gmail.com | ☎️ 1111141514</span>
+            <span class="hours">⏰ 8:00 AM until 6:00 PM</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Products</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Basic Brew</a></li>
+                        <li><a href="#">Artisan Brew</a></li>
+                        <li><a href="#">Non-Coffee</a></li>
+                        <li><a href="#">Hot Beverages</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Activities</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Coming soon</a></li>
+                        <li><a href="#">Current</a></li>
+                        <li><a href="#">Past Activities</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Join Us</a></li>
+                <li><a href="#">Enquiry</a></li>
+                <li><a href="#">Membership Registration</a></li>
+                <li>
+                    <a href="#">Profile Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="profile1.html">Profile 1</a></li>
+                        <li><a href="profile2.html">Profile 2</a></li>
+                        <li><a href="profile3.html">Profile 3</a></li>
+                        <li><a href="profile4.html">Profile 4</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="login-btn">Login</button>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <!-- Main content goes here -->
+				<h1>Membership Registration Form</h1>
+				<h2>Welcome! Please sign up.</h2>
+				<p>Sign up with us</p>
+				<p><label for="fullname">Full Name*</label><br>
+					<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="First" required="required">
+					<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="Last" required="required">
+				</p>
+				<p><label for="email">Email address*</label><br>
+					<input type="text" id="email" name="email" size="40" required="required">
+				</p>
+				<p><label for="phone">Phone number*</label><br>
+					<input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="###-###-####" required="required">
+				</p>
+				<p><label for="member">Membership plans*</label><br>
+					<select id="member" name="member" required="required">
+						<option value="">Please Select</option>
+						<option value="member1">Standard($100/year)</option>
+						<option value="member1">Employee($150/year)</option>
+						<option value="member2">Admin($200/year)</option>
+					</select>
+				</p>
+				<p><label for="term">Term of Services*</label><br>
+					<input type="checkbox" id="term" name="term" value="best" required="required"/>
+					I agree to the Term of Services
+				</p>
+			<input type="submit" value="Register"/><br><br>
+        </section>
+    </main>
+    <footer>
+        <nav class="footer-nav">
+            <div class="footer-dropdown">
+                <a href="#">Products</a>
+                <div class="footer-dropdown-content">
+                    <a href="#">Product A</a>
+                    <a href="#">Product B</a>
+                    <a href="#">Product C</a>
+                </div>
+            </div>
+            <div class="footer-dropdown">
+                <a href="#">Activities</a>
+                <div class="footer-dropdown-content">
+                    <a href="#">Activity A</a>
+                    <a href="#">Activity B</a>
+                    <a href="#">Activity C</a>
+                </div>
+            </div>
+            <a href="#">Join Us</a>
+            <a href="#">Membership Registration</a>
+            <a href="#">Profile Page</a>
+        </nav>
+        <button class="contact-btn">Contact Us</button>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

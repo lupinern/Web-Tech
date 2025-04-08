@@ -8,33 +8,29 @@
   </head>
   <body>
     <header>
-      <div class="top-bar">
-        <span class="contact-info">✉️ Test@gmail.com | ☎️ 1111141514</span>
-        <span class="hours">⏰ 8:00 AM until 6:00 PM</span>
-      </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li>
             <a href="#">Products</a>
             <ul class="dropdown">
-              <li><a href="#">Basic Brew</a></li>
-              <li><a href="#">Artisan Brew</a></li>
-              <li><a href="#">Non-Coffee</a></li>
-              <li><a href="#">Hot Beverages</a></li>
+              <li><a href="product1.html">Basic Brew</a></li>
+              <li><a href="product2.html">Artisan Brew</a></li>
+              <li><a href="product3.html">Non-Coffee</a></li>
+              <li><a href="product4.html">Hot Beverages</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Activities</a>
             <ul class="dropdown">
-              <li><a href="#">Coming soon</a></li>
-              <li><a href="#">Current</a></li>
+              <li><a href="Coming_Soon.html">Coming soon</a></li>
+              <li><a href="Current.html">Current</a></li>
               <li><a href="#">Past Activities</a></li>
             </ul>
           </li>
-          <li><a href="#">Join Us</a></li>
-          <li><a href="#">Enquiry</a></li>
-          <li><a href="#">Membership Registration</a></li>
+          <li><a href="joinus.html">Join Us</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="registration.html">Membership Registration</a></li>
           <li>
             <a href="#">Profile Pages</a>
             <ul class="dropdown">
@@ -45,177 +41,188 @@
             </ul>
           </li>
         </ul>
-        <button class="login-btn">Login</button>
+        <div class="login-btn-container">
+          <button class="login-btn">Login</button>
+        </div>
       </nav>
     </header>
     <main>
       <section class="content">
-        <!-- Main content goes here -->
-        <h1>Join Us</h1>
-        <form action="submit_order.php" method="post" id="joinus-form">
-          <!-- First Name -->
-          <label for="joinus-first_name">First Name:</label>
-          <input
-            type="text"
-            id="joinus-first_name"
-            name="first_name"
-            maxlength="25"
-            pattern="[A-Za-z ]+"
-            required
-            placeholder="Ex: John"
-          />
-          <br /><br />
-
-          <!-- Last Name -->
-          <label for="joinus-last_name">Last Name:</label>
-          <input
-            type="text"
-            id="joinus-last_name"
-            name="last_name"
-            maxlength="25"
-            pattern="[A-Za-z ]+"
-            required
-            placeholder="Ex: Smith"
-          />
-          <br /><br />
-
-          <!-- Email Address -->
-          <label for="joinus-email">Email Address:</label>
-          <input
-            type="email"
-            id="joinus-email"
-            name="email"
-            required
-            placeholder="Ex: johnsmith123@mail.com"
-          />
-          <br /><br />
-
-          <!-- Address Fieldset -->
-          <fieldset id="joinus-address">
-            <legend>Address</legend>
-
-            <!-- Street Address -->
-            <label for="joinus-street_address">Street Address:</label>
+        <div class="form-container">
+          <!-- Main content goes here -->
+          <h1>Join Us</h1>
+          <form action="submit_order.php" method="post" id="joinus-form">
+            <!-- First Name -->
+            <label for="joinus-first_name">First Name:</label>
             <input
               type="text"
-              id="joinus-street_address"
-              name="street_address"
-              maxlength="70"
+              id="joinus-first_name"
+              name="first_name"
+              maxlength="25"
+              pattern="[A-Za-z ]+"
               required
-              placeholder="John Smith st., no. 5A, 12345"
+              placeholder="Ex: John"
             />
             <br /><br />
 
-            <!-- City/Town -->
-            <label for="joinus-city">City/Town:</label>
+            <!-- Last Name -->
+            <label for="joinus-last_name">Last Name:</label>
             <input
               type="text"
-              id="joinus-city"
-              name="city"
-              maxlength="20"
+              id="joinus-last_name"
+              name="last_name"
+              maxlength="25"
+              pattern="[A-Za-z ]+"
               required
-              placeholder="Ex: Kuching"
+              placeholder="Ex: Smith"
             />
             <br /><br />
 
-            <!-- State -->
-            <label for="joinus-state">State:</label>
-            <select id="joinus-state" name="state" required>
-              <option value="">Select your state</option>
-              <option value="Johor">Johor</option>
-              <option value="Kedah">Kedah</option>
-              <option value="Kelantan">Kelantan</option>
-              <option value="Malacca">Malacca</option>
-              <option value="Negeri Sembilan">Negeri Sembilan</option>
-              <option value="Pahang">Pahang</option>
-              <option value="Penang">Penang</option>
-              <option value="Perak">Perak</option>
-              <option value="Perlis">Perlis</option>
-              <option value="Sabah">Sabah</option>
-              <option value="Sarawak">Sarawak</option>
-              <option value="Selangor">Selangor</option>
-              <option value="Terengganu">Terengganu</option>
-              <option value="Kuala Lumpur">Kuala Lumpur</option>
-              <option value="Labuan">Labuan</option>
-              <option value="Putrajaya">Putrajaya</option>
-            </select>
+            <!-- Email Address -->
+            <label for="joinus-email">Email Address:</label>
+            <input
+              type="email"
+              id="joinus-email"
+              name="email"
+              required
+              placeholder="Ex: johnsmith123@mail.com"
+            />
             <br /><br />
 
-            <!-- Postcode -->
-            <label for="joinus-postcode">Postcode:</label>
-            <input
-              type="text"
-              id="joinus-postcode"
-              name="postcode"
-              pattern="\d{5}"
-              required
-              placeholder="123456"
-            />
+            <!-- Address Fieldset -->
+            <fieldset id="joinus-address">
+              <legend>Address</legend>
+
+              <!-- Street Address -->
+              <label for="joinus-street_address">Street Address:</label>
+              <input
+                type="text"
+                id="joinus-street_address"
+                name="street_address"
+                maxlength="70"
+                required
+                placeholder="John Smith st., no. 5A, 12345"
+              />
+              <br /><br />
+
+              <!-- City/Town -->
+              <label for="joinus-city">City/Town:</label>
+              <input
+                type="text"
+                id="joinus-city"
+                name="city"
+                maxlength="20"
+                required
+                placeholder="Ex: Kuching"
+              />
+              <br /><br />
+
+              <!-- State -->
+              <label for="joinus-state">State:</label>
+              <select id="joinus-state" name="state" required>
+                <option value="">Select your state</option>
+                <option value="Johor">Johor</option>
+                <option value="Kedah">Kedah</option>
+                <option value="Kelantan">Kelantan</option>
+                <option value="Malacca">Malacca</option>
+                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                <option value="Pahang">Pahang</option>
+                <option value="Penang">Penang</option>
+                <option value="Perak">Perak</option>
+                <option value="Perlis">Perlis</option>
+                <option value="Sabah">Sabah</option>
+                <option value="Sarawak">Sarawak</option>
+                <option value="Selangor">Selangor</option>
+                <option value="Terengganu">Terengganu</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Labuan">Labuan</option>
+                <option value="Putrajaya">Putrajaya</option>
+              </select>
+              <br /><br />
+
+              <!-- Postcode -->
+              <label for="joinus-postcode">Postcode:</label>
+              <input
+                type="text"
+                id="joinus-postcode"
+                name="postcode"
+                pattern="\d{5}"
+                required
+                placeholder="123456"
+              />
             </fieldset>
-          <br /><br />
+            <br /><br />
 
-          <!-- Phone Number -->
-          <label for="joinus-phone">Phone Number:</label>
-          <input
-            type="tel"
-            id="joinus-phone"
-            name="phone"
-            maxlength="10"
-            pattern="\d{10}"
-            placeholder="0123456789"
-            required
-          />
-          <br /><br />
+            <!-- Phone Number -->
+            <label for="joinus-phone">Phone Number:</label>
+            <input
+              type="tel"
+              id="joinus-phone"
+              name="phone"
+              maxlength="10"
+              pattern="\d{10}"
+              placeholder="0123456789"
+              required
+            />
+            <br /><br />
 
-          <!-- CV Upload -->
-          <label for="CVfileUpload">Upload your CV:</label><br />
-          <input
-            type="file"
-            id="CVfileUpload"
-            name="CVfileUpload"
-            accept=".pdf, .doc, .docx"
-            required
-          />
-          <br /><br />
+            <!-- CV Upload -->
+            <label for="CVfileUpload">Upload your CV:</label><br />
+            <input
+              type="file"
+              id="CVfileUpload"
+              name="CVfileUpload"
+              accept=".pdf, .doc, .docx"
+              required
+            />
+            <br /><br />
 
-          <!-- Photo Upload -->
-          <label for="PhotofileUpload">Upload your photo:</label><br />
-          <input
-            type="file"
-            id="PhotofileUpload"
-            name="PhotofileUpload"
-            accept="image/png, image/jpeg"
-            required
-          />
-          <br /><br />
+            <!-- Photo Upload -->
+            <label for="PhotofileUpload">Upload your photo:</label><br />
+            <input
+              type="file"
+              id="PhotofileUpload"
+              name="PhotofileUpload"
+              accept="image/png, image/jpeg"
+              required
+            />
+            <br /><br />
 
-          <!-- Submit Button -->
-          <input type="submit" name="submit" id="joinus-submit" />
-        </form>
+            <!-- Submit Button -->
+            <input type="submit" name="submit" id="joinus-submit" />
+          </form>
+        </div>
       </section>
     </main>
     <footer>
-      <nav class="footer-nav">
-        <div class="footer-dropdown">
-          <a href="#">Products</a>
-          <div class="footer-dropdown-content">
-            <a href="#">Product A</a>
-            <a href="#">Product B</a>
-            <a href="#">Product C</a>
-          </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h3>Products</h3>
+          <a href="product1.html">Basic Brew</a>
+          <a href="product2.html">Artisan Brew</a>
+          <a href="product3.html">Non-Coffee</a>
+          <a href="product4.html">Hot Beverages</a>
         </div>
-        <div class="footer-dropdown">
-          <a href="#">Activities</a>
-          <div class="footer-dropdown-content">
-            <a href="#">Activity A</a>
-            <a href="#">Activity B</a>
-            <a href="#">Activity C</a>
-          </div>
+        <div class="footer-column">
+          <h3>Activities</h3>
+          <a href="Coming_Soon.html">Coming soon</a>
+          <a href="Current.html">Current</a>
+          <a href="#">Past Activities</a>
         </div>
-        <a href="#">Join Us</a>
-        <a href="#">Membership Registration</a>
-        <a href="#">Profile Page</a>
-      </nav>
+        <div class="footer-column">
+          <h3>Profile Pages</h3>
+          <a href="profile1.html">Profile Page 1</a>
+          <a href="profile2.html">Profile Page 2</a>
+          <a href="profile3.html">Profile Page 3</a>
+          <a href="profile4.html">Profile Page 4</a>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <a href="joinus.html">Join Us</a>
+          <a href="registration.html">Membership Registration</a>
+          <a href="enquiry.html">Enquiry</a>
+        </div>
+      </div>
       <button class="contact-btn">Contact Us</button>
       <p>&copy; 2025 All Rights Reserved</p>
     </footer>

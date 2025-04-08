@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew and Go Homepage</title>
+    <title>Enquiry Form</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -48,65 +48,119 @@
     </header>
     <main>
         <section class="content">
-		<form method="post">
-            		<!-- Main content goes here -->
-			<h1>Enquiry Form</h1>
-			<h3>Complete this form to place your order</h3>
-			<p><label for="firstname">First Name</label><br>
-				<input type="text" id="firstname" name="firstname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
-			</p>
-			<p><label for="lastname">Last Name</label><br>
-				<input type="text" id="lastname" name="lastname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
-			</p>
-			<p><label for="email">Email address</label><br>
-				<input type="email" id="email" name="email" placeholder="name@domain.com" required="required">
-			</p>
-			<fieldset>
-				<legend>Address</legend>
-				<p><label for="address">Street Address</label><br>
-					<input type="text" id="address" name="address" maxlength="40" required="required">
+		<div class="form-container">
+			<form action="submit_order.php" method="post" id="enquiry-form">
+            			<!-- Main content goes here -->
+				<h1>Enquiry Form</h1>
+				<h3>Complete this form to place your order</h3>
+				<p><label for="enquiry-first_name">First Name</label><br>
+					<input 
+						type="text" 
+						id="enquiry-first_name" 
+						name="enquiry-first_name" 
+						maxlength="25" 
+						placeholder="Ex: John" 
+						pattern="[A-Za-z]{1,25}" 
+						required="required"
+					/>
 				</p>
-				<p><label for="city">City/Town</label><br>
-					<input type="text" id="city" name="city" maxlength="20" required="required">
+				<p><label for="enquiry-last_name">Last Name</label><br>
+					<input 
+						type="text" 
+						id="enquiry-last_name" 
+						name="enquiry-last_name" 
+						maxlength="25" 
+						placeholder="Ex: Smith" 
+						pattern="[A-Za-z]{1,25}" 
+						required="required"
+					/>
 				</p>
-				<p><label for="state">State</label><br>
-					<select id="state" name="state" required="required">
+				<p><label for="enquiry-email">Email address</label><br>
+					<input 
+						type="email" 
+						id="enquiry-email" 
+						name="enquiry-email" 
+						placeholder="john123@mail.com" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Address fieldset -->
+				<fieldset id="enquiry-address">
+					<legend>Address</legend>
+					<p><label for="enquiry-street_address">Street Address</label><br>
+						<input 
+							type="text" 
+							id="enquiry-street_address" 
+							name="enquiry-street_address" 
+							maxlength="40" 
+							placeholder="John Smith st., no. 5A, 12345" 
+							required="required"
+						/>
+					</p>
+					<p><label for="enquiry-city">City/Town</label><br>
+						<input 
+							type="text" 
+							id="enquiry-city" 
+							name="enquiry-city" 
+							maxlength="20" 
+							placeholder="Ex: Kuching" 
+							required="required"
+						/>
+					</p>
+					<p><label for="enquiry-state">State</label><br>
+						<select id="enquiry-state" name="enquiry-state" required="required">
+							<option value="">Please Select</option>
+							<option value="Johor">Johor</option>
+							<option value="Kedah">Kedah</option>
+							<option value="Kelantan">Kelantan</option>
+							<option value="Malacca">Malacca</option>
+							<option value="Negeri Sembilan">Negeri Sembilan</option>
+							<option value="Pahang">Pahang</option>
+							<option value="Penang">Penang</option>
+							<option value="Perak">Perak</option>
+							<option value="Perlis">Perlis</option>
+							<option value="Sabah">Sabah</option>
+							<option value="Sarawak">Sarawak</option>
+							<option value="Selangor">Selangor</option>
+							<option value="Terengganu">Terengganu</option>
+							<option value="Kuala Lumpur">Kuala Lumpur</option>
+							<option value="Labuan">Labuan</option>
+							<option value="Putrajaya">Putrajaya</option>
+						</select>	
+					</p>
+					<p><label for="enquiry-postcode">Postcode</label><br>
+						<input 
+							type="text" 
+							id="enquiry-postcode" 
+							name="enquiry-postcode" 
+							placeholder="123456" 
+							pattern="\d{5}" 
+							required="required"
+						/>
+					</p>
+				</fieldset>
+				<p><label for="enquiry-phone">Phone number</label><br>
+					<input 
+						type="text" 
+						id="enquiry-phone" 
+						name="enquiry-phone" 
+						placeholder="0123456789" 
+						pattern="\d{10}" 
+						required="required"
+					/>
+				</p>
+				<p><label for="enquiry">Enquiry</label><br>
+					<select id="enquiry" name="enquiry" required="required">
 						<option value="">Please Select</option>
-						<option value="state1">Johor</option>
-						<option value="state2">Kedah</option>
-						<option value="state3">Kelantan</option>
-						<option value="state4">Kuala Lumpur</option>
-						<option value="state5">Labuan</option>
-						<option value="state6">Malacca</option>
-						<option value="state7">Negeri Sembilan</option>
-						<option value="state8">Pahang</option>
-						<option value="state9">Penang</option>
-						<option value="state10">Perak</option>
-						<option value="state11">Perlis</option>
-						<option value="state12">Putrajaya</option>
-						<option value="state13">Sabah</option>
-						<option value="state14">Sarawak</option>
-						<option value="state15">Selangor</option>
-						<option value="state16">Terengganu</option>
-					</select>	
+						<option value="enquiry1">Membership</option>
+						<option value="enquiry2">Products</option>
+						<option value="enquiry3">Pop-up Market activities</option>
+					</select>
 				</p>
-				<p><label for="postcode">Postcode</label><br>
-					<input type="text" id="postcode" name="postcode" pattern="\d{5}" required="required">
-				</p>
-			</fieldset>
-			<p><label for="phone">Phone number</label><br>
-				<input type="text" id="phone" name="phone" placeholder="0123456789" pattern="\d{10}" required="required">
-			</p>
-			<p><label for="enquiry">Enquiry</label><br>
-				<select id="enquiry" name="enquiry" required="required">
-					<option value="">Please Select</option>
-					<option value="enquiry1">Membership</option>
-					<option value="enquiry2">Products</option>
-					<option value="enquiry3">Pop-up Market activities</option>
-				</select>
-			</p>
-			<input type="submit" value="Submit"/><br><br>
-		</form>
+				<input type="submit" name="submit" id="enquiry-submit"/>
+			</form>
+		</div>
 	</section>
     </main>
     <footer>

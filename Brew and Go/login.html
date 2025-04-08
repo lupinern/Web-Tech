@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership Registration</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <span class="contact-info">✉️ Test@gmail.com | ☎️ 1111141514</span>
+        <span class="hours">⏰ 8:00 AM until 6:00 PM</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="#">Products</a>
+            <ul class="dropdown">
+              <li><a href="#">Basic Brew</a></li>
+              <li><a href="#">Artisan Brew</a></li>
+              <li><a href="#">Non-Coffee</a></li>
+              <li><a href="#">Hot Beverages</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Activities</a>
+            <ul class="dropdown">
+              <li><a href="#">Coming soon</a></li>
+              <li><a href="#">Current</a></li>
+              <li><a href="#">Past Activities</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Join Us</a></li>
+          <li><a href="#">Enquiry</a></li>
+          <li><a href="#">Membership Registration</a></li>
+          <li>
+            <a href="#">Profile Pages</a>
+            <ul class="dropdown">
+              <li><a href="profile1.html">Profile 1</a></li>
+              <li><a href="profile2.html">Profile 2</a></li>
+              <li><a href="profile3.html">Profile 3</a></li>
+              <li><a href="profile4.html">Profile 4</a></li>
+            </ul>
+          </li>
+        </ul>
+        <button class="login-btn">Login</button>
+      </nav>
+    </header>
+    <main>
+      <section class="content">
+        <h1>Login</h1>
+        <form action="process_login.php" method="post" id="login-form">
+          <!-- Login -->
+          <label for="login-username">Login:</label>
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            maxlength="10"
+            pattern="[A-Za-z]+"
+            required
+            placeholder="Enter your username"
+          />
+          <br /><br />
+
+          <!-- Password -->
+          <label for="login-password">Password:</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            maxlength="25"
+            pattern="[A-Za-z]+"
+            required
+            placeholder="Enter your password"
+          />
+          <br /><br />
+
+          <!-- Remember Me -->
+          <label for="remember-me">
+            <input
+              type="checkbox"
+              id="remember-me"
+              name="remember_me"
+            />Remember Me</label
+          >
+          <br /><br />
+
+          <!-- Forgot Password -->
+          <a href="forgotpassword.html">Forgot Password?</a>
+          <br /><br />
+
+          <!-- Submit Button -->
+          <input type="submit" value="Login" />
+          <br /><br />
+
+          <!-- Sign-Up Link -->
+          <p>Not a member? <a href="registration.html">Sign Up</a></p>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <nav class="footer-nav">
+        <div class="footer-dropdown">
+          <a href="#">Products</a>
+          <div class="footer-dropdown-content">
+            <a href="#">Product A</a>
+            <a href="#">Product B</a>
+            <a href="#">Product C</a>
+          </div>
+        </div>
+        <div class="footer-dropdown">
+          <a href="#">Activities</a>
+          <div class="footer-dropdown-content">
+            <a href="#">Activity A</a>
+            <a href="#">Activity B</a>
+            <a href="#">Activity C</a>
+          </div>
+        </div>
+        <a href="#">Join Us</a>
+        <a href="#">Membership Registration</a>
+        <a href="#">Profile Page</a>
+      </nav>
+      <button class="contact-btn">Contact Us</button>
+      <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

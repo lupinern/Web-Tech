@@ -53,6 +53,7 @@
             			<!-- Main content goes here -->
 				<h1>Enquiry Form</h1>
 				<h3>Complete this form to place your order</h3>
+				<!-- First Name -->
 				<p><label for="enquiry-first_name">First Name</label><br>
 					<input 
 						type="text" 
@@ -64,6 +65,8 @@
 						required="required"
 					/>
 				</p>
+				
+				<!-- Last Name -->
 				<p><label for="enquiry-last_name">Last Name</label><br>
 					<input 
 						type="text" 
@@ -75,6 +78,8 @@
 						required="required"
 					/>
 				</p>
+
+				<!-- Email Address -->
 				<p><label for="enquiry-email">Email address</label><br>
 					<input 
 						type="email" 
@@ -85,9 +90,11 @@
 					/>
 				</p>
 
-				<!-- Address fieldset -->
+				<!-- Address Fieldset -->
 				<fieldset id="enquiry-address">
 					<legend>Address</legend>
+
+					<!-- Street Address -->
 					<p><label for="enquiry-street_address">Street Address</label><br>
 						<input 
 							type="text" 
@@ -98,6 +105,8 @@
 							required="required"
 						/>
 					</p>
+
+					<!-- City/Town -->
 					<p><label for="enquiry-city">City/Town</label><br>
 						<input 
 							type="text" 
@@ -108,6 +117,8 @@
 							required="required"
 						/>
 					</p>
+
+					<!-- State -->
 					<p><label for="enquiry-state">State</label><br>
 						<select id="enquiry-state" name="enquiry-state" required="required">
 							<option value="">Please Select</option>
@@ -129,6 +140,8 @@
 							<option value="Putrajaya">Putrajaya</option>
 						</select>	
 					</p>
+
+					<!-- Postcode -->
 					<p><label for="enquiry-postcode">Postcode</label><br>
 						<input 
 							type="text" 
@@ -140,6 +153,8 @@
 						/>
 					</p>
 				</fieldset>
+
+				<!-- Phone Number -->
 				<p><label for="enquiry-phone">Phone number</label><br>
 					<input 
 						type="text" 
@@ -150,6 +165,8 @@
 						required="required"
 					/>
 				</p>
+
+				<!-- Enquiry -->
 				<p><label for="enquiry">Enquiry</label><br>
 					<select id="enquiry" name="enquiry" required="required">
 						<option value="">Please Select</option>
@@ -158,6 +175,8 @@
 						<option value="enquiry3">Pop-up Market activities</option>
 					</select>
 				</p>
+
+				<!-- Submit Button -->
 				<input type="submit" name="submit" id="enquiry-submit"/>
 			</form>
 		</div>

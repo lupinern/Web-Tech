@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew and Go Homepage</title>
+    <title>Membership Registration</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -48,27 +48,78 @@
     </header>
     <main>
         <section class="content">
-		<form method="post">
-            	<!-- Main content goes here -->
-			<h1>Membership Registration Form</h1>
-			<h2>Welcome! Please sign up.</h2>
-			<p><label for="firstname">First Name</label><br>
-				<input type="text" id="fullname" name="fullname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
-			</p>
-			<p><label for="lastname">Last Name</label><br>
-				<input type="text" id="fullname" name="fullname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
-			</p>
-			<p><label for="email">Email address</label><br>
-				<input type="email" id="email" name="email" placeholder="name@domain.com" required="required">
-			</p>
-			<p><label for="phone">Login ID</label><br>
-				<input type="text" id="login" name="login" maxlength="10" pattern="[A-Za-z]{1,10}" required="required">
-			</p>
-			<p><label for="password">Password</label><br>
-				<input type="text" id="password" name="password" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
-			</p>
-			<input type="submit" value="Submit"/><br><br>
-		</form>
+		<div class="form-container">
+			<form action="submit_order.php" method="post" id="registration-form">
+            			<!-- Main content goes here -->
+				<h1>Membership Registration Form</h1>
+				<h2>Welcome! Please sign up.</h2>
+				<!-- First Name -->
+				<p><label for="registration-first_name">First Name</label><br>
+					<input 
+						type="text" 
+						id="registration-first_name" 
+						name="registration-first_name" 
+						maxlength="25" 
+						placeholder="Ex: John"
+						pattern="[A-Za-z]{1,25}" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Last Name -->
+				<p><label for="registration-last_name">Last Name</label><br>
+					<input 
+						type="text" 
+						id="registration-last_name" 
+						name="registration-last_name" 
+						maxlength="25" 
+						placeholder="Ex: Smith"
+						pattern="[A-Za-z]{1,25}" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Email Address -->
+				<p><label for="registration-email">Email address</label><br>
+					<input 
+						type="email" 
+						id="registration-email" 
+						name="registration-email" 
+						placeholder="Ex: johnsmith123@mail.com" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Login ID -->
+				<p><label for="registration-login_id">Login ID</label><br>
+					<input 
+						type="text" 
+						id="registration-login_id" 
+						name="registration-login_id" 
+						maxlength="10" 
+						placeholder="ABCDEFGHIJ"
+						pattern="[A-Za-z]{1,10}" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Password -->
+				<p><label for="registration-password">Password</label><br>
+					<input 
+						type="text" 
+						id="registration-password" 
+						name="registration-password" 
+						maxlength="25" 
+						placeholder="johnsmith123"
+						pattern="[A-Za-z]{1,25}" 
+						required="required"
+					/>
+				</p>
+
+				<!-- Submit Button -->
+				<input type="submit" name="submit" id="registration-submit"/><br><br>
+			</form>
+		</div>
 	</section>
     </main>
     <footer>

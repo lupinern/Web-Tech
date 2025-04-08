@@ -53,33 +53,63 @@
             <!-- Main content goes here -->
 			<h1>Enquiry Form</h1>
 			<h3>Complete this form for more information</h3>
-			<p><label for="fullname">Full Name*</label><br>
-				<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="First" required="required">
-				<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="Last" required="required">
+			<p><label for="firstname">First Name</label><br>
+				<input type="text" id="firstname" name="firstname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
 			</p>
-			<p><label for="email">Email address*</label><br>
-				<input type="text" id="email" name="email" size="30" required="required">
+			<p><label for="lastname">Last Name</label><br>
+				<input type="text" id="lastname" name="lastname" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
 			</p>
-			<p><label for="phone">Phone number*</label><br>
-				<input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="###-###-####" required="required">
+			<p><label for="email">Email address</label><br>
+				<input type="email" id="email" name="email" placeholder="name@domain.com" required="required">
 			</p>
-			<p><label for="occupation">Occupation*</label><br>
-				<input type="text" id="occupation" name="occupation" required="required">
+			<fieldset>
+				<legend>Address</legend>
+				<p><label for="address">Street Address</label><br>
+					<input type="text" id="address" name="address" maxlength="40" required="required">
+				</p>
+				<p><label for="city">City/Town</label><br>
+					<input type="text" id="city" name="city" maxlength="20" required="required">
+				</p>
+				<p><label for="state">State</label><br>
+					<select id="state" name="state" required="required">
+						<option value="">Please Select</option>
+						<option value="state1">Johor</option>
+						<option value="state2">Kedah</option>
+						<option value="state3">Kelantan</option>
+						<option value="state4">Kuala Lumpur</option>
+						<option value="state5">Labuan</option>
+						<option value="state6">Malacca</option>
+						<option value="state7">Negeri Sembilan</option>
+						<option value="state8">Pahang</option>
+						<option value="state9">Penang</option>
+						<option value="state10">Perak</option>
+						<option value="state11">Perlis</option>
+						<option value="state12">Putrajaya</option>
+						<option value="state13">Sabah</option>
+						<option value="state14">Sarawak</option>
+						<option value="state15">Selangor</option>
+						<option value="state16">Terengganu</option>
+					</select>	
+				</p>
+				<p><label for="postcode">Postcode</label><br>
+					<input type="text" id="postcode" name="postcode" pattern="\d{5}" required="required">
+				</p>
+			</fieldset>
+			<p><label for="phone">Phone number</label><br>
+				<input type="text" id="phone" name="phone" placeholder="0123456789" pattern="\d{10}" required="required">
 			</p>
-			<p><label for="enquiry">Enquiry type*</label><br>
+			<p><label for="enquiry">Enquiry</label><br>
 				<select id="enquiry" name="enquiry" required="required">
 					<option value="">Please Select</option>
-					<option value="enquiry1">Products</option>
-					<option value="enquiry2">Membership</option>
-					<option value="enquiry3">Pop-up market request</option>
-					<option value="enquiry4">Complaints</option>
-					<option value="enquiry5">Others</option>
+					<option value="enquiry1">Membership</option>
+					<option value="enquiry2">Products</option>
+					<option value="enquiry3">Pop-up Market activities</option>
 				</select>
 			</p>
 			<p><label for="detail">Details*</label><br>
 				<textarea id="comments" name="comments" rows="4" cols="40" placeholder="Detail your enquiry here..."></textarea>
 			</p>
-			<input type="submit" value="Submit form"/><br><br>
+			<input type="submit" value="Submit"/><br><br>
 		</section>
     </main>
     <footer>

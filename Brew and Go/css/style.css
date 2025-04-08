@@ -447,3 +447,148 @@ h3.profile {
         height: 300px;
     }
 }
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Join us Page */
+body#joinus-page {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+#joinus-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#joinus-form input,
+#joinus-form select,
+#joinus-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#joinus-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#joinus-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}
+
+/* login page */
+
+#login-form label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: bold;
+}
+
+#login-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#login-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#login-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}
+
+/* Forgot Password */
+#forgot-password-form label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: bold;
+}
+
+#forgot-password-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#forgot-password-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#forgot-password-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}
+
+/* Reset Password */
+#reset-password-form label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: bold;
+}
+
+#reset-password-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#reset-password-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#reset-password-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}

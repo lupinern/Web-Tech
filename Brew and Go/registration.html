@@ -55,28 +55,20 @@
 				<h2>Welcome! Please sign up.</h2>
 				<p>Sign up with us</p>
 				<p><label for="fullname">Full Name*</label><br>
-					<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="First" required="required">
-					<input type="text" id="fullname" name="fullname" maxlength="15" placeholder="Last" required="required">
+					<input type="text" id="fullname" name="fullname" maxlength="25" pattern="[A-Za-z]{1,25}" placeholder="First" required="required">
+					<input type="text" id="fullname" name="fullname" maxlength="25" pattern="[A-Za-z]{1,25}" placeholder="Last" required="required">
 				</p>
 				<p><label for="email">Email address*</label><br>
-					<input type="text" id="email" name="email" size="40" required="required">
+					<input type="email" id="email" name="email" placeholder="name@domain.com" required="required">
 				</p>
-				<p><label for="phone">Phone number*</label><br>
-					<input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="###-###-####" required="required">
+				<p><label for="phone">Login ID*</label><br>
+					<input type="text" id="login" name="login" maxlength="10" pattern="[A-Za-z]{1,10}" required="required">
 				</p>
-				<p><label for="member">Membership plans*</label><br>
-					<select id="member" name="member" required="required">
-						<option value="">Please Select</option>
-						<option value="member1">Standard($100/year)</option>
-						<option value="member1">Employee($150/year)</option>
-						<option value="member2">Admin($200/year)</option>
-					</select>
+				<p><label for="password">Password*</label><br>
+					<input type="text" id="password" name="password" maxlength="25" pattern="[A-Za-z]{1,25}" required="required">
 				</p>
-				<p><label for="term">Term of Services*</label><br>
-					<input type="checkbox" id="term" name="term" value="best" required="required"/>
-					I agree to the Term of Services
-				</p>
-			<input type="submit" value="Register"/><br><br>
+
+			<input type="submit" value="Submit"/><br><br>
         </section>
     </main>
     <footer>

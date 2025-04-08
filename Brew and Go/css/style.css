@@ -592,3 +592,81 @@ body#joinus-page {
 #reset-password-form input[type="submit"]:hover {
   background-color: #3b4c34;
 }
+
+/* Enquiry */
+#enquiry-form label {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	font-weight: bold;
+}
+
+#enquiry-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#enquiry-form input,
+#enquiry-form select,
+#enquiry-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#enquiry-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#enquiry-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}
+
+/* Membership Registration*/
+#registration-form label {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	font-weight: bold;
+}
+
+#registration-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#registration-form input,
+#registration-form select,
+#registration-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#registration-form input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#registration-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}

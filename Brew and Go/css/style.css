@@ -670,3 +670,240 @@ body#joinus-page {
 #registration-form input[type="submit"]:hover {
   background-color: #3b4c34;
 }
+
+/*
+Current.html
+*/
+
+#box_current1{
+    border-style: solid;
+    border-width: 5px;
+    height: 1450px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+#box_current2{
+    font-size: 25px;
+    height: 180px;
+    padding: 120px;
+    padding-top: 1px;
+    padding-left: 37px;
+    margin: 0 auto;
+}
+
+#box_current3{
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+#current_header{
+    font-size: 70px;
+    color: #332A21;
+
+    position: relative;
+    left: 340px;
+}
+
+#seni_kita{
+    width: 1100px;
+}
+
+#text_current1{
+    font-size: 55px;
+}
+
+#text_current2{
+    font-size: 30px;
+}
+
+#info_current{
+    border: 3px solid;
+    background-color: #e0dcc5;
+    padding: 20px 40px;
+    width: 410px;
+    height: 90px;
+}
+
+/*
+Coming_Soon.html
+*/
+
+#box_coming1{
+    border-style: solid;
+    border-width: 5px;
+    height: 1450px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+#box_coming2{
+    font-size: 25px;
+    height: 180px;
+    padding: 120px;
+    padding-top: 1px;
+    padding-left: 37px;
+    margin: 0 auto;
+}
+
+#box_coming3{
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+
+#coming_soon_header{
+    font-size: 70px;
+    color: #332A21;
+
+    position: relative;
+    left: 365px;
+}
+
+#brew{
+    width: 1100px;
+}
+
+#fb_link{
+    width: 100px;
+}
+
+#insta_link{
+    width: 100px;
+}
+
+#text_coming1{
+    font-size: 55px;
+}
+
+#text_coming2{
+    font-size: 30px;
+}
+
+#info_coming{
+    border: 3px solid;
+    background-color: #e0dcc5;
+    padding: 30px 40px;
+    padding-right: 30px;
+    padding-bottom: 45px;
+    width: 340px;
+    height: 40px;
+}
+
+/*
+Past_Activities.html
+*/
+
+#past_activities_header{
+    font-size: 70px;
+    color: #332A21;
+
+    position: relative;
+    left: 370px;
+}
+
+#box_past1{
+    border-style: solid;
+    border-width: 1px;
+    height: 310px;
+    width: 1000px;
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.activities:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+#opening2{
+    float: left;
+    width: 300px;
+}
+
+#opening2_content{
+    font-size: 20px;
+
+    position: relative;;
+    bottom: 30px;
+    left: 30px;
+    overflow: hidden;
+}
+
+#caption_opening2{
+    position: relative;
+    right: 270px;
+    top: 240px;
+}
+
+#box_past2{
+    border-style: solid;
+    border-width: 1px;
+    height: 310px;
+    width: 1000px;
+    padding-top: 20px;
+    margin: 220px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+#christmas{
+    float: right;
+    width: 300px;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+#christmas_content{
+    font-size: 20px;
+
+    position: relative;
+    top: 3px;
+    left: 60px;
+    overflow: hidden;
+}
+
+#caption_christmas{
+    position: relative;
+    left: 715px;
+    top: 255px;
+}
+
+#box_past3{
+    border-style: solid;
+    border-width: 1px;
+    height: 310px;
+    width: 1000px;
+    padding-top: 5px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+#seni_kita2{
+    float: left;
+    width: 270px;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+#seni_kita2_content{
+    font-size: 20px;
+
+    position: relative;
+    bottom: 20px;
+    right: 10px;
+    overflow: hidden;
+}
+
+#caption_seni_kita2{
+    position: relative;
+    right: 295px;
+    top: 240px;
+}
+
+#info_past{
+    position: relative;
+    bottom: 25px;
+    left: 490px;
+}

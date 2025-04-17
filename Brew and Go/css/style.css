@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     margin: 0;
     padding: 0;
-	overflow-x: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -705,11 +705,11 @@ Current.html
 */
 
 #box_current1{
-    border-style: solid;
-    border-width: 5px;
-    height: 1450px;
+    height: 990px;
     padding-top: 20px;
     margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #box_current2{
@@ -735,7 +735,12 @@ Current.html
 }
 
 #seni_kita{
-    width: 1100px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 #text_current1{
@@ -747,11 +752,14 @@ Current.html
 }
 
 #info_current{
-    border: 3px solid;
-    background-color: #e0dcc5;
     padding: 20px 40px;
     width: 410px;
     height: 90px;
+}
+
+#caption_senikita{
+    position: relative;
+    left: 460px;
 }
 
 /*
@@ -759,11 +767,11 @@ Coming_Soon.html
 */
 
 #box_coming1{
-    border-style: solid;
-    border-width: 5px;
-    height: 1450px;
+    height: 950px;
     padding-top: 20px;
     margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #box_coming2{
@@ -777,7 +785,7 @@ Coming_Soon.html
 
 #box_coming3{
     font-size: 15px;
-    padding-top: 20px;
+    padding-top: 65px;
 }
 
 
@@ -790,15 +798,28 @@ Coming_Soon.html
 }
 
 #brew{
-    width: 1100px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 #fb_link{
-    width: 100px;
+    width: 75px;
+
+    position: relative;
+    left: 340px;
+    bottom: 45px;
 }
 
 #insta_link{
-    width: 100px;
+    width: 50px;
+
+    position: relative;
+    left: 350px;
+    bottom: 35px;
 }
 
 #text_coming1{
@@ -810,15 +831,17 @@ Coming_Soon.html
 }
 
 #info_coming{
-    border: 3px solid;
-    background-color: #e0dcc5;
     padding: 30px 40px;
     padding-right: 30px;
     padding-bottom: 45px;
-    width: 340px;
+    width: 360px;
     height: 40px;
 }
 
+#caption_brewngo{
+    position: relative;
+    left: 480px;
+}
 /*
 Past_Activities.html
 */
@@ -832,11 +855,11 @@ Past_Activities.html
 }
 
 #box_past1{
-    border-style: solid;
-    border-width: 1px;
     height: 310px;
     width: 1000px;
     padding-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -866,14 +889,14 @@ Past_Activities.html
 }
 
 #box_past2{
-    border-style: solid;
-    border-width: 1px;
     height: 310px;
     width: 1000px;
     padding-top: 20px;
     margin: 220px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -895,17 +918,17 @@ Past_Activities.html
 
 #caption_christmas{
     position: relative;
-    left: 715px;
+    left: 638px;
     top: 255px;
 }
 
 #box_past3{
-    border-style: solid;
-    border-width: 1px;
     height: 310px;
     width: 1000px;
     padding-top: 5px;
     margin-bottom: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 

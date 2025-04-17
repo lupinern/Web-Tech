@@ -8,9 +8,24 @@ body {
     min-height: 100vh;
 }
 
+.logo-container {
+    height: 60px; /* Match nav height */
+    padding: 5px 20px 5px 0; /* Right padding only */
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Push everything else to the right */
+}
+
+.nav-logo {
+    height: 50px; /* Slightly smaller than nav height */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 150px; /* Prevent it from being too wide */
+    object-fit: contain; /* Ensure entire logo is visible */
+}
+
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the navigation items */
     align-items: center;
     padding: 0 20px;
     background-color: #332A21;
@@ -25,10 +40,12 @@ nav > ul {
     padding: 0;
     display: flex;
     gap: 0;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the ul */
     height: 100%;
     align-items: center;
     position: relative;
+    flex-grow: 1; /* Allow it to take available space */
+    justify-content: center; /* Center the items */
 }
 
 nav ul li {
@@ -102,10 +119,8 @@ nav ul li:hover .dropdown {
 }
 
 .login-btn-container {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-left: auto; /* Push to far right */
+    padding-left: 20px; /* Add some spacing */
 }
 
 .login-btn {
@@ -958,4 +973,109 @@ Past_Activities.html
     position: relative;
     bottom: 25px;
     left: 490px;
+}
+
+/*Product CSS*/
+.product-hero {
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.product-description {
+    grid-column: 1;
+}
+
+.product-details {
+    grid-column: 1;
+}
+
+.product-tips {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 8px;
+    align-self: start;
+}
+
+.product-tips h3 {
+    color: #332A21;
+    border-bottom: 2px solid #e0dcc5;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.product-tips ul {
+    padding-left: 20px;
+}
+
+.product-tips li {
+    margin-bottom: 10px;
+}
+
+figure {
+    margin: 30px 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    color: #666;
+}
+
+dl {
+    margin: 20px 0;
+}
+
+dt {
+    font-weight: bold;
+    color: #332A21;
+    margin-top: 15px;
+}
+
+dd {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-tips {
+        grid-column: 1;
+        grid-row: auto;
+    }
 }

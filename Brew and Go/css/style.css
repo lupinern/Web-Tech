@@ -632,6 +632,20 @@ body#joinus-page {
   background-color: #3b4c34;
 }
 
+#enquiry-form input[type="reset"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#enquiry-form input[type="reset"]:hover {
+  background-color: #3b4c34;
+}
+
 /* Membership Registration*/
 #registration-form label {
 	display: inline-flex;
@@ -668,6 +682,20 @@ body#joinus-page {
 }
 
 #registration-form input[type="submit"]:hover {
+  background-color: #3b4c34;
+}
+
+#registration-form input[type="reset"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #332a21;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#registration-form input[type="reset"]:hover {
   background-color: #3b4c34;
 }
 

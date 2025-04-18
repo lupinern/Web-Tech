@@ -1192,3 +1192,48 @@ dd {
 .profile-header3 h3{
     color: #0F52BA;
 }
+
+/*Profile Page Timothy*/
+.profile-bio4,
+.profile-bio {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.profile-bio4 h3,
+.profile-bio h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.profile-bio4 table,
+.profile-bio table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.profile-bio4 th,
+.profile-bio th,
+.profile-bio4 td,
+.profile-bio td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.profile-bio4 th,
+.profile-bio th {
+  background-color: #332a21;
+  color: white;
+}
+
+.profile-bio4 tr:nth-child(even),
+.profile-bio tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.profile-header4 h3{
+    color: #0F52BA;
+}

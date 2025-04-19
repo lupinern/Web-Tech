@@ -849,7 +849,7 @@ body {
   */
   
   #box_coming1 {
-    height: 950px;
+    height: 1000px;
     padding-top: 20px;
     margin: 0 auto;
     border-radius: 10px;
@@ -866,11 +866,12 @@ body {
   }
   
   #box_coming3 {
+    height: 20px;
     font-size: 15px;
     padding-top: 65px;
 
     position: relative;
-    bottom: 42px;
+    bottom: 15px;
   }
   
   #coming_soon_header {

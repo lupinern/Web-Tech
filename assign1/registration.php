@@ -9,48 +9,7 @@
   <body>
     <header>
       <nav>
-        <div class="logo-container">
-          <img
-            src="images/logo.jpg"
-            alt="Brew and Go Logo"
-            class="nav-logo"
-          />
-        </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="#">Products</a>
-            <ul class="dropdown">
-              <li><a href="product1.html">Basic Brew</a></li>
-              <li><a href="product2.html">Artisan Brew</a></li>
-              <li><a href="product3.html">Non-Coffee</a></li>
-              <li><a href="product4.html">Hot Beverages</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Activities</a>
-            <ul class="dropdown">
-              <li><a href="Coming_Soon.html">Coming soon</a></li>
-              <li><a href="Current.html">Current</a></li>
-              <li><a href="Past_Activities.html">Past Activities</a></li>
-            </ul>
-          </li>
-          <li><a href="joinus.html">Join Us</a></li>
-          <li><a href="enquiry.html">Enquiry</a></li>
-          <li><a href="registration.html">Membership Registration</a></li>
-          <li>
-            <a href="#">Profile Pages</a>
-            <ul class="dropdown">
-              <li><a href="profile1.html">Luthfi Bahri</a></li>
-              <li><a href="profile2.html">Aloysius Fung</a></li>
-              <li><a href="profile3.html">Jason Hernando Kwee</a></li>
-              <li><a href="profile4.html">Timothy Samuel Lain Chi Hung</a></li>
-            </ul>
-          </li>
-        </ul>
-        <div class="login-btn-container">
-          <a href="login.html" class="login-btn">Login</a>
-        </div>
+        <?php include("navigation.php"); ?> 
       </nav>
     </header>
     <main>
@@ -149,41 +108,7 @@
       </section>
     </main>
     <footer>
-      <div class="footer-links">
-          <div class="footer-column">
-              <h3>Products</h3>
-              <a href="product1.html">Basic Brew</a>
-              <a href="product2.html">Artisan Brew</a>
-              <a href="product3.html">Non-Coffee</a>
-              <a href="product4.html">Hot Beverages</a>
-          </div>
-          <div class="footer-column">
-              <h3>Activities</h3>
-              <a href="Coming_Soon.html">Coming soon</a>
-              <a href="Current.html">Current</a>
-              <a href="Past_Activities.html">Past Activities</a>
-          </div>
-          <div class="footer-column">
-              <h3>Profile Pages</h3>
-              <a href="profile1.html">Luthfi Bahri</a>
-              <a href="profile2.html">Aloysius Fung</a>
-              <a href="profile3.html">Jason Hernando Kwee</a>
-              <a href="profile4.html">Timothy Samuel Lain Chi Hung</a>
-          </div>
-          <div class="footer-column">
-              <h3>Support</h3>
-              <a href="joinus.html">Join Us</a>
-              <a href="registration.html">Membership Registration</a>
-              <a href="enquiry.html">Enquiry</a>
-          </div>
-          <div class="footer-column">
-              <h3>Other</h3>
-              <a href="Acknowledgement.html">Acknowledgement</a>
-              <a href="enhancement1.html">Enhancement</a>
-              <a href="https://youtu.be/_2Ptr3lmg4I">Video Demonstration</a>
-          </div>
-      </div>
-      <p>&copy; 2025 All Rights Reserved</p>
+      <?php include("footer.php"); ?> 
   </footer>
   </body>
 </html>

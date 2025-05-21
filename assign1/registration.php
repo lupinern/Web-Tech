@@ -20,7 +20,7 @@
           </div>
           <div class="form-container">
             <form
-              action="submit_order.php"
+              action="Registration_process.php"
               method="post"
               id="registration-form"
             >

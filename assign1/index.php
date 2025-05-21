@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <?php include("database.php"); ?> 
+    <?php include("joinus_table.php"); ?> 
     <header>
         <nav>
             <?php include("navigation.php"); ?> 

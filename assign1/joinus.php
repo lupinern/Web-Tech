@@ -114,7 +114,7 @@
                 name="postcode"
                 pattern="\d{5}"
                 required
-                placeholder="123456"
+                placeholder="12345"
               />
             </fieldset>
             <br /><br />
@@ -125,9 +125,9 @@
               type="tel"
               id="joinus-phone"
               name="phone"
-              maxlength="10"
-              pattern="\d{10}"
-              placeholder="0123456789"
+              maxlength="11"
+              pattern="\d{11}"
+              placeholder="01123456789"
               required
             />
             <br /><br />
@@ -155,7 +155,7 @@
             <br /><br />
 
             <!-- Submit and Reset Button -->
-            <input type="submit" name="submit" id="joinus-submit" />
+            <input type="submit" name="submit" id="joinus-submit"/>
             <input type="reset" name="reset" id="joinus-reset" />
           </form>
         </div>

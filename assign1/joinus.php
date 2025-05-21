@@ -17,7 +17,7 @@
         <div class="form-container">
           <!-- Main content goes here -->
           <h1>Join Us</h1>
-          <form action="submit_order.php" method="post" id="joinus-form">
+          <form action="Joinus_process.php" method="post" enctype="multipart/form-data" id="joinus-form">
             <!-- First Name -->
             <label for="joinus-first_name">First Name:</label>
             <input
@@ -133,7 +133,7 @@
             <br /><br />
 
             <!-- CV Upload -->
-            <label for="CVfileUpload">Upload your CV:</label><br />
+            <label for="CVfileUpload" method="post" enctype="multipart/form-data">Upload your CV:</label><br />
             <input
               type="file"
               id="CVfileUpload"
@@ -144,7 +144,7 @@
             <br /><br />
 
             <!-- Photo Upload -->
-            <label for="PhotofileUpload">Upload your photo:</label><br />
+            <label for="PhotofileUpload" method="post" enctype="multipart/form-data">Upload your photo:</label><br />
             <input
               type="file"
               id="PhotofileUpload"

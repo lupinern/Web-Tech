@@ -48,11 +48,11 @@
         <td> <?php echo $row["email"]; ?> </td>
         <td> <?php echo $row["street_address"]; ?> </td>
         <td> <?php echo $row["city"]; ?> </td>
-        <td> <?php echo $row["state"]; ?> </td>
+        <td> <?php echo $row["states"]; ?> </td>
         <td> <?php echo $row["postcode"]; ?> </td>
-        <td> <?php echo $row["phone"]; ?> </td>
-        <td> <?php echo $row["CVfileupload"]; ?> </td>
-        <td> <?php echo $row["Photofileupload"]; ?> </td>
+        <td> <?php echo $row["phone_number"]; ?> </td>
+        <td> <?php echo "<a href='" . htmlspecialchars($cvUpload) . "' target='_blank'>" . htmlspecialchars($cv) . "</a><br>"; ?> </td>
+        <td> <?php echo "<img src='" . htmlspecialchars($imageUpload) . "' alt='Photo' style='width: 300px; height: auto;'><br>"; ?> </td>
     </tr>
 
     <?php

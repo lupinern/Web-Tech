@@ -133,7 +133,7 @@
             <br /><br />
 
             <!-- CV Upload -->
-            <label for="CVfileUpload" method="post" enctype="multipart/form-data">Upload your CV:</label><br />
+            <label for="CVfileUpload">Upload your CV:</label><br />
             <input
               type="file"
               id="CVfileUpload"
@@ -144,7 +144,7 @@
             <br /><br />
 
             <!-- Photo Upload -->
-            <label for="PhotofileUpload" method="post" enctype="multipart/form-data">Upload your photo:</label><br />
+            <label for="PhotofileUpload">Upload your photo:</label><br />
             <input
               type="file"
               id="PhotofileUpload"

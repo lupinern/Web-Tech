@@ -7,7 +7,7 @@
     $conn = mysqli_connect($db_server, $db_user, $db_password, $db_name);
 
     if(!$conn){
-        die("Connection failed: " . mysqli_connect_error());
+        die("Connection failed");
     }
 
     $sql = "CREATE TABLE IF NOT EXISTS JoinUs(
@@ -20,8 +20,8 @@
         states VARCHAR(20) NOT NULL,
         postcode VARCHAR(5) NOT NULL,
         phone_number INT(11) NOT NULL,
-        cv LONGBLOB NOT NULL,
-        photo LONGBLOB NOT NULL
+        cv VARCHAR(50) NOT NULL,
+        photo VARCHAR(50) NOT NULL
     )";
 
     mysqli_query($conn, $sql);

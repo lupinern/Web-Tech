@@ -80,7 +80,7 @@
         <section class="container">
             <h1>View Login History</h1>
             <?php if (empty($logins)): ?>
-                <p>No enquiries found.</p>
+                <p>No users found.</p>
             <?php else: ?>
                 <table>
                     <thead>

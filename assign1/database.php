@@ -6,17 +6,15 @@ $db_password = "";
 // Connect without selecting a database
 $conn = mysqli_connect($db_server, $db_user, $db_password);
 
-// Check connection
+// Check if connection failed
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed");
 }
 
 // Create database
 $sql = "CREATE DATABASE IF NOT EXISTS brewngo";
-if (mysqli_query($conn, $sql)) {
-    echo "Database created successfully or already exists";
-} else {
-    echo "Error creating database: " . mysqli_error($conn);
+if (!mysqli_query($conn, $sql)) {
+    echo "Error creating database";
 }
 
 mysqli_close($conn);

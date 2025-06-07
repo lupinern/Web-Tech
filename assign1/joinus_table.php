@@ -10,7 +10,7 @@
         die("Connection failed");
     }
 
-    $sql = "CREATE TABLE IF NOT EXISTS JoinUs(
+    $sql = "CREATE TABLE IF NOT EXISTS job(
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         first_name VARCHAR(30) NOT NULL,
         last_name VARCHAR(30) NOT NULL,

@@ -17,7 +17,7 @@ try {
 
 // Fetch all enquiries
 try {
-    $stmt = $conn->query("SELECT * FROM JoinUs ORDER BY id ASC");
+    $stmt = $conn->query("SELECT * FROM job ORDER BY id ASC");
     $jobs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Query failed: " . $e->getMessage());

@@ -41,7 +41,7 @@
                 move_uploaded_file($_FILES["PhotofileUpload"]["tmp_name"], $imageUpload);
 
                 // Insert form data and file paths into the database
-                $sql = "INSERT INTO JoinUs(first_name, last_name, email, street_address, city, states, postcode, phone_number, cv, photo)
+                $sql = "INSERT INTO job(first_name, last_name, email, street_address, city, states, postcode, phone_number, cv, photo)
                         VALUES('$first_name', '$last_name', '$email', '$street_address', '$city', '$state', '$postcode', '$phone', '$cvUpload', '$imageUpload')";
 
                 if(!mysqli_query($conn, $sql)){

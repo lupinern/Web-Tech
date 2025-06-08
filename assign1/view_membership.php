@@ -14,11 +14,12 @@ $username = "root";
 $password = "";
 $dbname = "brewngo";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Initialize message variables
@@ -30,12 +31,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['mem
     $member_id = (int) $_POST['member_id'];
 
     try {
-        $stmt = $conn->prepare("DELETE FROM members WHERE id = ?");
-        $stmt->execute([$member_id]);
+        $stmt = mysqli_prepare($conn, "DELETE FROM members WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "i", $member_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
 
         $message = "Member deleted successfully";
         $messageType = "success";
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         $message = "Error deleting member: " . $e->getMessage();
         $messageType = "error";
     }
@@ -50,23 +53,24 @@ if (isset($_POST['action']) && $_POST['action'] == 'edit' && isset($_POST['membe
     $login_id = $_POST['login_id'];
 
     try {
-        $stmt = $conn->prepare("UPDATE members SET first_name = ?, last_name = ?, email = ?, login_id = ? WHERE id = ?");
-        $stmt->execute([$first_name, $last_name, $email, $login_id, $member_id]);
+        $stmt = mysqli_prepare($conn, "UPDATE members SET first_name = ?, last_name = ?, email = ?, login_id = ? WHERE id = ?");
+        mysqli_stmt_bind_param($stmt, "ssssi", $first_name, $last_name, $email, $login_id, $member_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
 
         $message = "Member updated successfully";
         $messageType = "success";
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         $message = "Error updating member: " . $e->getMessage();
         $messageType = "error";
     }
 }
 
 // Fetch all memberships from the members table
-try {
-    $stmt = $conn->query("SELECT * FROM members ORDER BY id DESC");
-    $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Query failed: " . $e->getMessage());
+$result = mysqli_query($conn, "SELECT * FROM members ORDER BY id DESC");
+$members = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $members[] = $row;
 }
 ?>
 

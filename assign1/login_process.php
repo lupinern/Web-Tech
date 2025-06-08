@@ -13,6 +13,7 @@ function sanitize($data)
     return htmlspecialchars(trim($data));
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login_username = sanitize($_POST['username']);
     $login_password = sanitize($_POST['password']);
@@ -35,6 +36,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['logged_in'] = true;
             $_SESSION['is_admin'] = true;
 
+            // Record login in login table (for both admin and regular users)
+            try {
+                // First check if the table has is_admin column
+                $checkColumn = $conn->query("SHOW COLUMNS FROM login LIKE 'is_admin'");
+
+                if ($checkColumn->rowCount() == 0) {
+                    // Add is_admin column if it doesn't exist
+                    $conn->exec("ALTER TABLE login ADD COLUMN is_admin TINYINT(1) DEFAULT 0");
+                }
+
+                // Now insert the login record
+                $stmtLogin = $conn->prepare("INSERT INTO login (username, password, is_admin) VALUES (?, ?, ?)");
+                $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true ? 1 : 0;
+                $stmtLogin->execute([$login_username, $login_password, $isAdmin]); // Store actual password
+            } catch (PDOException $e) {
+                // Just log the error, don't stop the login process
+                error_log("Failed to record login: " . $e->getMessage());
+            }
+
             header("Location: admin_dashboard.php");
             exit();
         } else {
@@ -55,11 +75,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['logged_in'] = true;
                 $_SESSION['is_admin'] = false;
 
+                // Record login in login table (for both admin and regular users)
+                try {
+                    // First check if the table has is_admin column
+                    $checkColumn = $conn->query("SHOW COLUMNS FROM login LIKE 'is_admin'");
+
+                    if ($checkColumn->rowCount() == 0) {
+                        // Add is_admin column if it doesn't exist
+                        $conn->exec("ALTER TABLE login ADD COLUMN is_admin TINYINT(1) DEFAULT 0");
+                    }
+
+                    // Now insert the login record
+                    $stmtLogin = $conn->prepare("INSERT INTO login (username, password, is_admin) VALUES (?, ?, ?)");
+                    $isAdmin = 0;
+                    $stmtLogin->execute([$login_username, $login_password, $isAdmin]); // Store actual password
+                } catch (PDOException $e) {
+                    // Just log the error, don't stop the login process
+                    error_log("Failed to record login: " . $e->getMessage());
+                }
+
                 // Redirect to home page
                 header("Location: index.php");
                 exit();
             } else {
                 // Login failed
+                // Optionally record failed login attempt here if desired
                 header("Location: login.php?error=Invalid username or password&username=" . urlencode($login_username));
                 exit();
             }

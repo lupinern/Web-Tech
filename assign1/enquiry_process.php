@@ -5,11 +5,12 @@ $username = "root"; // Adjust as per your MySQL setup
 $password = ""; // Adjust as per your MySQL setup
 $dbname = "brewngo"; // Updated to match the database name
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Function to sanitize input
@@ -34,16 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $enquiry_type = sanitize($_POST['enquiry_type']);
 
     // Server-side validation
-    if (!preg_match("/^[A-Za-z]{1,25}$/", $first_name)) {
-        $error = "First name must be 1-25 letters only.";
-    } elseif (!preg_match("/^[A-Za-z]{1,25}$/", $last_name)) {
-        $error = "Last name must be 1-25 letters only.";
+    if (strlen($first_name) > 25 || !preg_match("/^[A-Za-z]{1,25}$/", $first_name)) {
+        $error = "First name must be 1-25 alphabetic characters.";
+    } elseif (strlen($last_name) > 25 || !preg_match("/^[A-Za-z]{1,25}$/", $last_name)) {
+        $error = "Last name must be 1-25 alphabetic characters.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email format.";
     } elseif (strlen($street_address) > 40) {
-        $error = "Street address must not exceed 40 characters.";
+        $error = "Street address must be maximum 40 characters.";
     } elseif (strlen($city) > 20) {
-        $error = "City must not exceed 20 characters.";
+        $error = "City must be maximum 20 characters.";
     } elseif (
         !in_array($state, [
             'Johor',
@@ -76,23 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If no errors, insert into database
     if (empty($error)) {
         try {
-            $stmt = $conn->prepare("
-                INSERT INTO enquiry (first_name, last_name, email, street_address, city, state, postcode, phone, enquiry_type)
-                VALUES (:first_name, :last_name, :email, :street_address, :city, :state, :postcode, :phone, :enquiry_type)
-            ");
-            $stmt->execute([
-                ':first_name' => $first_name,
-                ':last_name' => $last_name,
-                ':email' => $email,
-                ':street_address' => $street_address,
-                ':city' => $city,
-                ':state' => $state,
-                ':postcode' => $postcode,
-                ':phone' => $phone,
-                ':enquiry_type' => $enquiry_type
-            ]);
+            $stmt = mysqli_prepare($conn, "INSERT INTO enquiry (first_name, last_name, email, street_address, city, state, postcode, phone, enquiry_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "sssssssss", $first_name, $last_name, $email, $street_address, $city, $state, $postcode, $phone, $enquiry_type);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
             $success = "Enquiry submitted successfully!";
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             $error = "Database error: " . $e->getMessage();
         }
     }

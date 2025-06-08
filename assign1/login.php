@@ -1,9 +1,9 @@
 <?php
 // Database connection for table creation
 $db_servername = "localhost";
-$db_username = "root"; // Adjust as per your MySQL setup
-$db_password = ""; // Adjust as per your MySQL setup
-$dbname = "brewngo"; // Database name as per your setup
+$db_username = "root"; 
+$db_password = "";
+$dbname = "brewngo"; 
 
 try {
   $conn = new PDO("mysql:host=$db_servername;dbname=$dbname", $db_username, $db_password);

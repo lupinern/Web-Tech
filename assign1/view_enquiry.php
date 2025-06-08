@@ -2,27 +2,25 @@
 // Start session for admin authentication
 session_start();
 
-
-
 // Database connection
 $servername = "localhost";
 $username = "root"; // Adjust as per your MySQL setup
 $password = ""; // Adjust as per your MySQL setup
 $dbname = "brewngo"; // Updated to match the database name
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Fetch all enquiries
-try {
-    $stmt = $conn->query("SELECT * FROM enquiry ORDER BY id DESC");
-    $enquiries = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Query failed: " . $e->getMessage());
+$result = mysqli_query($conn, "SELECT * FROM enquiry ORDER BY id DESC");
+$enquiries = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $enquiries[] = $row;
 }
 ?>
 

@@ -1,61 +1,76 @@
-<?php 
-    // Database connection
-    $servername = "localhost";
-    $username = "root"; // Adjust as per your MySQL setup
-    $password = ""; // Adjust as per your MySQL setup
-    $dbname = "brewngo"; // Updated to match the database name
+<?php
+session_start();
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "brewngo";
+
+// Function to sanitize input
+function sanitize($data)
+{
+    return htmlspecialchars(trim($data));
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $login_username = sanitize($_POST['username']);
+    $login_password = sanitize($_POST['password']);
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Connection failed: " . $e->getMessage());
-    }
 
-    // Function to sanitize input
-    function sanitize($data)
-    {
-        return htmlspecialchars(trim($data));
-    }
+        // First check admin table
+        $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
+        $stmt->execute([$login_username, $login_password]);
 
-    // Initialize error message
-    $error = "";
+        if ($stmt->rowCount() > 0) {
+            // Admin login successful
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Validate form data
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $login_username = sanitize($_POST['username']);
-        $login_password = sanitize($_POST['password']);
+            // Set session variables
+            $_SESSION['user_id'] = $admin['id'];
+            $_SESSION['username'] = $admin['username'];
+            $_SESSION['logged_in'] = true;
+            $_SESSION['is_admin'] = true;
 
-        // Server-side validation
-        if (!preg_match("/^[A-Za-z]{1,10}$/", $login_username)) {
-            $error = "Username must be 1-10 characters only.";
-        } elseif (!preg_match("/^[A-Za-z]{1,25}$/", $login_password)) {
-            $error = "Password must be 1-25 characters only.";
-        }
+            header("Location: admin_dashboard.php");
+            exit();
+        } else {
+            // Check the members table for regular users
+            $stmt = $conn->prepare("SELECT * FROM members WHERE login_id = ? AND password = ?");
+            $stmt->execute([$login_username, $login_password]);
 
-        // If no errors, insert into database
-        if (empty($error)) {
-            try {
-                $stmt = $conn->prepare("
-                    INSERT INTO login (username, password)
-                    VALUES (:username, :password)
-                ");
-                 $stmt->execute([
-                    ':username' => $login_username,
-                    ':password' => $login_password,
-                ]);
-                $success = "Login successfully!";
-            } catch (PDOException $e) {
-                $error = "Database error: " . $e->getMessage();
+            if ($stmt->rowCount() > 0) {
+                // Member login successful
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                // Set session variables
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['login_id'];
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['last_name'] = $user['last_name'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['logged_in'] = true;
+                $_SESSION['is_admin'] = false;
+
+                // Redirect to home page
+                header("Location: index.php");
+                exit();
+            } else {
+                // Login failed
+                header("Location: login.php?error=Invalid username or password&username=" . urlencode($login_username));
+                exit();
             }
         }
+    } catch (PDOException $e) {
+        header("Location: login.php?error=Database error: " . urlencode($e->getMessage()));
+        exit();
     }
-
-    // Redirect back to enquiry.php with error or success message
-    if (!empty($error)) {
-        header("Location: login.php?error=" . urlencode($error));
-    } else {
-        header("Location: login.php?success=" . urlencode($success));
-    }
+} else {
+    // Not a POST request
+    header("Location: login.php");
     exit();
+}
 ?>

@@ -1,36 +1,36 @@
 <?php
-	// Start session for admin authentication
-	session_start();
+// Start session for admin authentication
+session_start();
 
-	// Database connection
-	$servername = "localhost";
-	$username = "root"; // Adjust as per your MySQL setup
-	$password = ""; // Adjust as per your MySQL setup
-	$dbname = "brewngo"; // Updated to match the database name
-	
-	try {
-    	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	} catch (PDOException $e) {
-    	die("Connection failed: " . $e->getMessage());
-	}
+// Database connection
+$servername = "localhost";
+$username = "root"; // Adjust as per your MySQL setup
+$password = ""; // Adjust as per your MySQL setup
+$dbname = "brewngo"; // Updated to match the database name
 
-    // Check if user is logged in and is an admin
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-        header("Location: login.php");
-        exit;
-    }
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    // Get current datetime
-    $currentDateTime = date("Y-m-d H:i:s");
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-    // Fetch all enquiries
-    try {
-        $stmt = $conn->query("SELECT * FROM login ORDER BY id DESC");
-        $logins = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        die("Query failed: " . $e->getMessage());
-    }
+// Check if user is logged in and is an admin
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+// Get current datetime
+$currentDateTime = date("Y-m-d H:i:s");
+
+// Fetch all login records
+$result = mysqli_query($conn, "SELECT * FROM login ORDER BY id DESC");
+$logins = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $logins[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,22 +91,22 @@
                 <table>
                     <thead>
                         <tr>
-							<th>ID</th>
+                            <th>ID</th>
                             <th>Username</th>
                             <th>Password</th>
-						</tr>
-					</thead>
-					<tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php foreach ($logins as $login): ?>
                             <tr>
-								<td><?php echo htmlspecialchars($login['id']); ?></td>
+                                <td><?php echo htmlspecialchars($login['id']); ?></td>
                                 <td><?php echo htmlspecialchars($login['username']); ?></td>
                                 <td><?php echo htmlspecialchars($login['password']); ?></td>
-							</tr>
-						<?php endforeach; ?>
-						</tbody>
-					</table>
-			<?php endif; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
         </section>
     </main>
     <footer>

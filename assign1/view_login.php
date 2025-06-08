@@ -15,16 +15,22 @@
     	die("Connection failed: " . $e->getMessage());
 	}
 
-	// Get current datetime
-	$currentDateTime = date("Y-m-d H:i:s");
+    // Check if user is logged in and is an admin
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+        header("Location: login.php");
+        exit;
+    }
 
-	// Fetch all enquiries
-	try {
-    	$stmt = $conn->query("SELECT * FROM login ORDER BY id DESC");
-    	$logins = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	} catch (PDOException $e) {
-    	die("Query failed: " . $e->getMessage());
-	}
+    // Get current datetime
+    $currentDateTime = date("Y-m-d H:i:s");
+
+    // Fetch all enquiries
+    try {
+        $stmt = $conn->query("SELECT * FROM login ORDER BY id DESC");
+        $logins = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
 ?>
 
 <!DOCTYPE html>

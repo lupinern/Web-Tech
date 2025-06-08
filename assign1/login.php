@@ -1,62 +1,62 @@
 <?php
 // Database connection for table creation
 $db_servername = "localhost";
-$db_username = "root"; 
+$db_username = "root";
 $db_password = "";
-$dbname = "brewngo"; 
+$dbname = "brewngo";
 
-try {
-  $conn = new PDO("mysql:host=$db_servername;dbname=$dbname", $db_username, $db_password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Create connection
+$conn = mysqli_connect($db_servername, $db_username, $db_password, $dbname);
 
-  // Check if the login table exists
-  $tableCheck = $conn->query("SHOW TABLES LIKE 'login'");
-  if ($tableCheck->rowCount() == 0) {
-    // Table doesn't exist, create it
-    $sql = "CREATE TABLE login (
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Check if the login table exists
+$tableCheck = mysqli_query($conn, "SHOW TABLES LIKE 'login'");
+if (mysqli_num_rows($tableCheck) == 0) {
+  // Table doesn't exist, create it
+  $sql = "CREATE TABLE login (
             id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             username VARCHAR(10) NOT NULL,
             password VARCHAR(25) NOT NULL
       )";
 
-    $conn->exec($sql);
+  mysqli_query($conn, $sql);
+  $table_message = "Login table created successfully with admin account.";
+} else {
+  // Check if admin table exists first
+  $adminTableCheck = mysqli_query($conn, "SHOW TABLES LIKE 'admin'");
+  if (mysqli_num_rows($adminTableCheck) == 0) {
+    // Admin table doesn't exist, create it
+    $adminTableSql = "CREATE TABLE admin (
+            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(25) NOT NULL,
+            password VARCHAR(25) NOT NULL,
+            reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+    mysqli_query($conn, $adminTableSql);
 
-    $table_message = "Login table created successfully with admin account.";
+    // Insert default admin into admin table
+    $adminInsertSql = "INSERT INTO admin (username, password) VALUES ('admin', 'admin')";
+    mysqli_query($conn, $adminInsertSql);
+    $table_message = "Admin table created with default admin account.";
   } else {
-    // Check if admin table exists first
-    $adminTableCheck = $conn->query("SHOW TABLES LIKE 'admin'");
-    if ($adminTableCheck->rowCount() == 0) {
-      // Admin table doesn't exist, create it
-      $adminTableSql = "CREATE TABLE admin (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(25) NOT NULL,
-    password VARCHAR(25) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  )";
-      $conn->exec($adminTableSql);
-
-      // Insert default admin into admin table
+    // Check if admin account exists in admin table
+    $adminCheck = mysqli_query($conn, "SELECT * FROM admin WHERE username = 'admin'");
+    if (mysqli_num_rows($adminCheck) == 0) {
+      // No admin found, create one
       $adminInsertSql = "INSERT INTO admin (username, password) VALUES ('admin', 'admin')";
-      $conn->exec($adminInsertSql);
-      $table_message = "Admin table created with default admin account.";
+      mysqli_query($conn, $adminInsertSql);
+      $table_message = "Default admin account created in admin table.";
     } else {
-      // Check if admin account exists in admin table
-      $adminCheck = $conn->query("SELECT * FROM admin WHERE username = 'admin'");
-      if ($adminCheck->rowCount() == 0) {
-        // No admin found, create one
-        $adminInsertSql = "INSERT INTO admin (username, password) VALUES ('admin', 'admin')";
-        $conn->exec($adminInsertSql);
-        $table_message = "Default admin account created in admin table.";
-      } else {
-        $table_message = "Admin account already exists in admin table.";
-      }
+      $table_message = "Admin account already exists in admin table.";
     }
   }
-} catch (PDOException $e) {
-  $table_message = "Error: " . $e->getMessage();
 }
 
-$conn = null; // Close the connection
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

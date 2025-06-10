@@ -22,7 +22,7 @@
 			<ul>
 				<li><strong>Job application Module</strong></li>
 				<p>
-					Allows users to submit their resume and photo by uploading the photo into the website.
+					Allows users to submit their resume and photo by uploading the photo into the website
 					<br><br>
 					The PHP code needed for the implementation of this feature:
 					<br><br>

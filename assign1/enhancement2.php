@@ -22,33 +22,18 @@
 			<ul>
 				<li><strong>Job application Module</strong></li>
 				<p>
-					Allows users to submit their resume and photo by uploading the photo into the website
+					Allows users to submit their resume and photo by uploading the and resume and photo into the website
 					<br><br>
 					The PHP code needed for the implementation of this feature:
 					<br><br>
 					<img 
-						src="images/folder.jpg"
+						src="images/enhancement2.jpg"
 						alt="Enhancement 1"
 					/>
 					<br>
+					<p>For each row of column "cv" and "photo" in the database:</p>
 					<img
-						src="images/uploadPhoto.jpg"
-						alt="Enhancement 1"
-					/>
-					<br>
-					<img
-						src="images/move.jpg"
-						alt="Enhancement 1"
-					/>
-					<br>
-					<img
-						src="images/insert.jpg"
-						alt="Enhancement 1"
-					/>
-					<br>
-					<p>For each row of column photo in the database:</p>
-					<img
-						src="images/photo.jpg"
+						src="images/enhancement2.1.jpg"
 						alt="Enhancement 1"
 					/>
 					<br><br>

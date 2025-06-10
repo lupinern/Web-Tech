@@ -13,7 +13,6 @@
       </nav>
     </header>
     <main>
-      <?php include("joinus_table.php"); ?> 
       <section class="content">
         <div class="form-container">
           <!-- Main content goes here -->

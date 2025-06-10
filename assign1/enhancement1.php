@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enhancement Page</title>
     <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <nav>
-        <?php include("navigation.php"); ?> 
-      </nav>
+        <nav>
+            <?php include("navigation.php"); ?> 
+        </nav>
     </header>
     <main>
 		<section class="content">
@@ -52,6 +52,6 @@
     </main>
     <footer>
       <?php include("footer.php"); ?> 
-  </footer>
-  </body>
+    </footer>
+</body>
 </html>

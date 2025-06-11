@@ -105,7 +105,7 @@ try {
                                 <td> <?php echo htmlspecialchars($job["postcode"]); ?> </td>
                                 <td> <?php echo htmlspecialchars($job["phone_number"]); ?> </td>
                                 <td> <a href='<?php echo htmlspecialchars($job["cv"]); ?>' target='_blank'>Download Applicant's CV</a> </td>
-                                <td> <img src='<?php echo htmlspecialchars($job['photo']); ?>' alt="Applicant's Photo" style='width: 300px; margin: auto;'> </td>
+                                <td> <img src='<?php echo htmlspecialchars($job['photo']); ?>' alt="Applicant's Photo" class='photo_size'> </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

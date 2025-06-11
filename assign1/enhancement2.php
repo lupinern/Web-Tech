@@ -31,7 +31,7 @@
 						alt="Enhancement 1"
 					/>
 					<br>
-					<p>For each row of column "cv" and "photo" in the database:</p>
+					<p>For each row of column "cv" and "photo" in the database, show the resume and photo:</p>
 					<img
 						src="images/enhancement2.1.jpg"
 						alt="Enhancement 1"

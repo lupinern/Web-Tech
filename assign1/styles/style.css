@@ -1308,3 +1308,13 @@ Acknowledgement
   left: 470px;
   top: 18px;
 }
+
+/* 
+Photo Size
+*/
+
+.photo_size {
+  width: 250px; 
+  display: block;
+  margin: 0 auto;
+}

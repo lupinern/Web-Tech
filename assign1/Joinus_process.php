@@ -59,11 +59,11 @@
                         echo "State: ". htmlspecialchars($_POST["state"]) . "<br>";
                         echo "Postcode: ". htmlspecialchars($_POST["postcode"]) . "<br>";
                         echo "CV: <a href='" . htmlspecialchars($cvUpload) . "' target='_blank'>" . htmlspecialchars($cv) . "</a><br>";
-                        echo "Photo: <br><img src='" . htmlspecialchars($imageUpload) . "' alt='Photo Uploaded' style='width: 300px; margin: auto;'>";
+                        echo "Photo: <br><img src='" . htmlspecialchars($imageUpload) . "' alt='Photo Uploaded' class='photo_size'>";
                     echo '</fieldset>';
                 }
-
-                mysqli_close($conn);
+                
+                mysqli_query($conn, $sql);
             ?>
         <footer>
             <?php include("footer.php"); ?> 

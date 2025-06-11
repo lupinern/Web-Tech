@@ -31,6 +31,7 @@
                 <h3>Other</h3>
                 <a href="Acknowledgement.php">Acknowledgement</a>
                 <a href="enhancement1.php">Enhancement</a>
+                <a href="enhancement2.php">Enhancement 2</a>
                 <a href="https://youtu.be/_2Ptr3lmg4I">Video Demonstration</a>
             </div>
         </div>

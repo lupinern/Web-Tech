@@ -1318,3 +1318,13 @@ Photo Size
   display: block;
   margin: 0 auto;
 }
+
+.img-e img{
+  height: 25%;
+  width: 25%;
+}
+
+.img-e2 img{
+  height: 75%;
+  width: 75%;
+}

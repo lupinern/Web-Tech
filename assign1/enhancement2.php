@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enhancement 2 Page</title>
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <?php include("navigation.php"); ?> 
-      </nav>
-    </header>
-    <main>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Enhancement 2 Page</title>
+	<link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+	<header>
+		<nav>
+			<?php include("navigation.php"); ?>
+		</nav>
+	</header>
+	<main>
 		<section class="content">
 			<h1>Enhancement 2 Page</h1>
 			<h3>Description</h3>
@@ -26,27 +28,44 @@
 					<br><br>
 					The PHP code needed for the implementation of this feature:
 					<br><br>
-					<img 
-						src="images/enhancement2.jpg"
-						alt="Enhancement 1"
-					/>
+					<img src="images/enhancement2.jpg" alt="Enhancement 1" />
 					<br>
-					<p>For each row of column "cv" and "photo" in the database, show the resume and photo:</p>
-					<img
-						src="images/enhancement2.1.jpg"
-						alt="Enhancement 1"
-					/>
+				<p>For each row of column "cv" and "photo" in the database, show the resume and photo:</p>
+				<img src="images/enhancement2.1.jpg" alt="Enhancement 1" />
+				</p>
+			</ul>
+
+			<ul>
+				<li><strong>User Module Create, Modify, Delete (For view_enquiry)</strong></li>
+				<p>
+					Allows admins to Create Modify and Delete enquiries
 					<br><br>
-					The assignment did not require any uploading of photos to the website, thus this enhancement goes beyond the specified requirement
+					The create enquiry entry form from view_enquiry.php.
 					<br><br>
-					The web page that was enhanced: 
-					<strong>view_job</strong>
+				<div class="img-e">
+					<img src="images/enhancement2.2.jpg" alt="Enhancement 2" />
+				</div>
+				<br>
+				<p>Table showing all enquiries from the enquiry table.</p>
+				<br>
+				<p>Admins can edit and save existing entries or delete them.</p>
+				<div class="img-e2">
+					<img src="images/enhancement2.21.jpg" alt="Enhancement 2" />
+				</div>
+				<br><br>
+				The assignment did not require any uploading of photos to the website, thus this enhancement goes beyond
+				the specified requirement
+				<br><br>
+				The web page that was enhanced:
+				<strong>view_job</strong>
+				<strong>view_enquiry</strong>
 				</p>
 			</ul>
 		</section>
-    </main>
-    <footer>
-      <?php include("footer.php"); ?> 
-  </footer>
-  </body>
+	</main>
+	<footer>
+		<?php include("footer.php"); ?>
+	</footer>
+</body>
+
 </html>

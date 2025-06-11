@@ -62,8 +62,6 @@
                         echo "Photo: <br><img src='" . htmlspecialchars($imageUpload) . "' alt='Photo Uploaded' class='photo_size'>";
                     echo '</fieldset>';
                 }
-                
-                mysqli_query($conn, $sql);
             ?>
         <footer>
             <?php include("footer.php"); ?> 

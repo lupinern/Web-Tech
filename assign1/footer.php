@@ -33,6 +33,7 @@
                 <a href="enhancement1.php">Enhancement</a>
                 <a href="enhancement2.php">Enhancement 2</a>
                 <a href="https://youtu.be/_2Ptr3lmg4I">Video Demonstration</a>
+                <a href="https://youtu.be/SUrCUfGQAAQ">Video Demonstration 2</a>
             </div>
         </div>
         <p>&copy; 2025 All Rights Reserved</p>';

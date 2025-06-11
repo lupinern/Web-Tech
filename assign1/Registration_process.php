@@ -1,112 +1,95 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+echo "PHP is working!<br>";
+
+// Test database connection
+$db_server = "localhost";
+$db_user = "root";
+$db_password = "";
+$db_name = "brewngo";
+
+$conn = mysqli_connect($db_server, $db_user, $db_password, $db_name);
+if (!$conn) {
+  echo "Database connection failed: " . mysqli_connect_error();
+} else {
+  echo "Database connected successfully!<br>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Confirmation - Brew and Go</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership Registration</title>
+  <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <?php include("navigation.php"); ?>
-        </nav>
-    </header>
-    <main>
-        <section class="content">
-            <div class="form-container">
-                <?php
-                // Database connection
-                $db_server = "localhost";
-                $db_user = "root";
-                $db_password = "";
-                $db_name = "brewngo";
+  <header>
+    <nav>
+      <?php include("navigation.php"); ?>
+    </nav>
+  </header>
+  <main>
+    <section class="content">
+      <div class="form-image-wrapper">
+        <div class="image-box">
+          <img src="images/Join_Member1.jpg" alt="Registration Visual" />
+        </div>
+        <div class="form-container">
+          <form action="Registration_process.php" method="post" id="registration-form">
+            <!-- Main content goes here -->
+            <h1>Membership Registration Form</h1>
+            <h2>Welcome! Please sign up.</h2>
+            <!-- First Name -->
+            <p>
+              <label for="registration-first_name">First Name</label><br />
+              <input type="text" id="registration-first_name" name="registration-first_name" maxlength="25"
+                placeholder="Ex: John" pattern="[A-Za-z]{1,25}" required="required" />
+            </p>
 
-                // Connect to database
-                $conn = mysqli_connect($db_server, $db_user, $db_password, $db_name);
+            <!-- Last Name -->
+            <p>
+              <label for="registration-last_name">Last Name</label><br />
+              <input type="text" id="registration-last_name" name="registration-last_name" maxlength="25"
+                placeholder="Ex: Smith" pattern="[A-Za-z]{1,25}" required="required" />
+            </p>
 
-                // Check connection
-                if (!$conn) {
-                    die("<h2>Connection failed:</h2><p>" . mysqli_connect_error() . "</p>");
-                }
+            <!-- Email Address -->
+            <p>
+              <label for="registration-email">Email address</label><br />
+              <input type="email" id="registration-email" name="registration-email"
+                placeholder="Ex: johnsmith123@mail.com" required="required" />
+            </p>
 
-                // Check if members table exists and create if needed
-                try {
-                    $tableCheck = $conn->query("SHOW TABLES LIKE 'membership'");
+            <!-- Login ID -->
+            <p>
+              <label for="registration-login_id">Login ID</label><br />
+              <input type="text" id="registration-login_id" name="registration-login_id" maxlength="10"
+                placeholder="Ex: ABCDEFGHIJ" pattern="[A-Za-z]{1,10}" required="required" />
+            </p>
 
-                    if ($tableCheck->num_rows == 0) {
-                        // Create members table
-                        $createTableSQL = "CREATE TABLE membership (
-                            id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                            first_name VARCHAR(50) NOT NULL,
-                            last_name VARCHAR(50) NOT NULL,
-                            email VARCHAR(100) NOT NULL,
-                            login_id VARCHAR(50) NOT NULL,
-                            password VARCHAR(50) NOT NULL,
-                            reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                        )";
+            <!-- Password -->
+            <p>
+              <label for="registration-password">Password</label><br />
+              <input type="text" id="registration-password" name="registration-password" maxlength="25"
+                placeholder="Ex: johnsmith (Alphabets only)" pattern="[A-Za-z]{1,25}" required="required" />
+            </p>
 
-                        if ($conn->query($createTableSQL) === TRUE) {
-                            // Optional: Log table creation
-                            error_log("Members table created successfully.");
-                        } else {
-                            // Handle table creation error
-                            header("Location: registration.php?error=Database setup failed: " . urlencode($conn->error));
-                            exit();
-                        }
-                    }
-                } catch (Exception $e) {
-                    // Handle table creation error
-                    header("Location: registration.php?error=Database setup failed: " . urlencode($e->getMessage()));
-                    exit();
-                }
-
-                // Process form data
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // Get form data
-                    $first_name = mysqli_real_escape_string($conn, $_POST['registration-first_name']);
-                    $last_name = mysqli_real_escape_string($conn, $_POST['registration-last_name']);
-                    $email = mysqli_real_escape_string($conn, $_POST['registration-email']);
-                    $login_id = mysqli_real_escape_string($conn, $_POST['registration-login_id']);
-                    $password = mysqli_real_escape_string($conn, $_POST['registration-password']);
-
-                    // Insert data into database
-                    $sql = "INSERT INTO membership (first_name, last_name, email, login_id, password)
-        VALUES ('$first_name', '$last_name', '$email', '$login_id', '$password')";
-
-                    if (mysqli_query($conn, $sql)) {
-                        echo "<h1>Registration Successful!</h1>";
-                        echo "<p>Thank you for registering with Brew & Go.</p>";
-
-                        // Display all submitted details
-                        echo "<div class='registration-details'>";
-                        echo "<h2>Your Registration Details:</h2>";
-                        echo "<p><strong>First Name:</strong> " . htmlspecialchars($first_name) . "</p>";
-                        echo "<p><strong>Last Name:</strong> " . htmlspecialchars($last_name) . "</p>";
-                        echo "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
-                        echo "<p><strong>Login ID:</strong> " . htmlspecialchars($login_id) . "</p>";
-                        echo "<p><strong>Password:</strong> " . str_repeat("*", strlen($password)) . "</p>";
-                        echo "</div>";
-
-                        echo "<p>We look forward to serving you our premium coffee products.</p>";
-                        echo "<p><a href='index.php' class='card-btn'>Return to Home Page</a></p>";
-                    } else {
-                        echo "<h1>Registration Error</h1>";
-                        echo "<p>Error: " . mysqli_error($conn) . "</p>";
-                        echo "<p><a href='registration.php' class='card-btn'>Try Again</a></p>";
-                    }
-                }
-
-                mysqli_close($conn);
-                ?>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <?php include("footer.php"); ?>
-    </footer>
+            <!-- Submit and Reset Button -->
+            <input type="submit" name="submit" id="registration-submit" />
+            <input type="reset" name="reset" id="registration-reset" /><br /><br />
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <?php include("footer.php"); ?>
+  </footer>
 </body>
 
 </html>

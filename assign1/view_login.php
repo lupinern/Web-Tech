@@ -26,7 +26,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset(
 $currentDateTime = date("Y-m-d H:i:s");
 
 // Fetch all login records
-$result = mysqli_query($conn, "SELECT * FROM login ORDER BY id DESC");
+$result = mysqli_query($conn, "SELECT * FROM user ORDER BY id DESC");
 $logins = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $logins[] = $row;

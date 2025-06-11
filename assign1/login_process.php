@@ -1,62 +1,99 @@
 <?php
-// Database connection for table creation
-$db_servername = "localhost";
-$db_username = "root";
-$db_password = "";
+session_start();
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "brewngo";
 
-// Create connection
-$conn = mysqli_connect($db_servername, $db_username, $db_password, $dbname);
-
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+// Function to sanitize input
+function sanitize($data)
+{
+  return htmlspecialchars(trim($data));
 }
 
-// Check if the login table exists
-$tableCheck = mysqli_query($conn, "SHOW TABLES LIKE 'login'");
-if (mysqli_num_rows($tableCheck) == 0) {
-  // Table doesn't exist, create it
-  $sql = "CREATE TABLE login (
-            id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(10) NOT NULL,
-            password VARCHAR(25) NOT NULL
-      )";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $login_username = sanitize($_POST['username']);
+  $login_password = sanitize($_POST['password']);
 
-  mysqli_query($conn, $sql);
-  $table_message = "Login table created successfully with admin account.";
-} else {
-  // Check if admin table exists first
-  $adminTableCheck = mysqli_query($conn, "SHOW TABLES LIKE 'admin'");
-  if (mysqli_num_rows($adminTableCheck) == 0) {
-    // Admin table doesn't exist, create it
-    $adminTableSql = "CREATE TABLE admin (
-            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(25) NOT NULL,
-            password VARCHAR(25) NOT NULL,
-            reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )";
-    mysqli_query($conn, $adminTableSql);
+  try {
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    // Insert default admin into admin table
-    $adminInsertSql = "INSERT INTO admin (username, password) VALUES ('admin', 'admin')";
-    mysqli_query($conn, $adminInsertSql);
-    $table_message = "Admin table created with default admin account.";
-  } else {
-    // Check if admin account exists in admin table
-    $adminCheck = mysqli_query($conn, "SELECT * FROM admin WHERE username = 'admin'");
-    if (mysqli_num_rows($adminCheck) == 0) {
-      // No admin found, create one
-      $adminInsertSql = "INSERT INTO admin (username, password) VALUES ('admin', 'admin')";
-      mysqli_query($conn, $adminInsertSql);
-      $table_message = "Default admin account created in admin table.";
-    } else {
-      $table_message = "Admin account already exists in admin table.";
+    // Check connection
+    if (!$conn) {
+      throw new Exception("Connection failed: " . mysqli_connect_error());
     }
-  }
-}
 
-mysqli_close($conn);
+    // First check admin table
+    $stmt = mysqli_prepare($conn, "SELECT * FROM admin WHERE username = ? AND password = ?");
+    mysqli_stmt_bind_param($stmt, "ss", $login_username, $login_password);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+      // Admin login successful
+      $admin = mysqli_fetch_assoc($result);
+
+      // Set session variables
+      $_SESSION['user_id'] = $admin['id'];
+      $_SESSION['username'] = $admin['username'];
+      $_SESSION['logged_in'] = true;
+      $_SESSION['is_admin'] = true;
+
+      // Record login in login table
+      $isAdmin = 1;
+      $passwordMask = "******"; // Create a variable for the password mask
+      $insertStmt = mysqli_prepare($conn, "INSERT INTO login (username, password, is_admin) VALUES (?, ?, ?)");
+      mysqli_stmt_bind_param($insertStmt, "ssi", $login_username, $passwordMask, $isAdmin);
+
+      mysqli_close($conn);
+      header("Location: admin_dashboard.php");
+      exit();
+    } else {
+      // Check the members table for regular users
+      mysqli_stmt_close($stmt);
+      $stmt = mysqli_prepare($conn, "SELECT * FROM members WHERE login_id = ? AND password = ?");
+      mysqli_stmt_bind_param($stmt, "ss", $login_username, $login_password);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+
+      if (mysqli_num_rows($result) > 0) {
+        // Member login successful
+        $user = mysqli_fetch_assoc($result);
+
+        // Set session variables
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['login_id'];
+        $_SESSION['first_name'] = $user['first_name'];
+        $_SESSION['last_name'] = $user['last_name'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['logged_in'] = true;
+        $_SESSION['is_admin'] = false;
+
+        mysqli_close($conn);
+        header("Location: index.php");
+        exit();
+      } else {
+        // Login failed
+        mysqli_close($conn);
+        header("Location: login.php?error=Invalid username or password&username=" . urlencode($login_username));
+        exit();
+      }
+    }
+  } catch (Exception $e) {
+    if (isset($conn)) {
+      mysqli_close($conn);
+    }
+    header("Location: login.php?error=Database error: " . urlencode($e->getMessage()));
+    exit();
+  }
+} else {
+  // Not a POST request
+  header("Location: login.php");
+  exit();
+}
 ?>
 
 <!DOCTYPE html>

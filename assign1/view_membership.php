@@ -31,7 +31,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['mem
     $member_id = (int) $_POST['member_id'];
 
     try {
-        $stmt = mysqli_prepare($conn, "DELETE FROM members WHERE id = ?");
+        $stmt = mysqli_prepare($conn, "DELETE FROM membership WHERE id = ?");
         mysqli_stmt_bind_param($stmt, "i", $member_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -53,7 +53,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'edit' && isset($_POST['membe
     $login_id = $_POST['login_id'];
 
     try {
-        $stmt = mysqli_prepare($conn, "UPDATE members SET first_name = ?, last_name = ?, email = ?, login_id = ? WHERE id = ?");
+        $stmt = mysqli_prepare($conn, "UPDATE membership SET first_name = ?, last_name = ?, email = ?, login_id = ? WHERE id = ?");
         mysqli_stmt_bind_param($stmt, "ssssi", $first_name, $last_name, $email, $login_id, $member_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -67,7 +67,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'edit' && isset($_POST['membe
 }
 
 // Fetch all memberships from the members table
-$result = mysqli_query($conn, "SELECT * FROM members ORDER BY id DESC");
+$result = mysqli_query($conn, "SELECT * FROM membership ORDER BY id DESC");
 $members = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $members[] = $row;

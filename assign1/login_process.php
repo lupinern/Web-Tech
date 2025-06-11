@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Record login in login table
       $isAdmin = 1;
       $passwordMask = "******"; // Create a variable for the password mask
-      $insertStmt = mysqli_prepare($conn, "INSERT INTO login (username, password, is_admin) VALUES (?, ?, ?)");
+      $insertStmt = mysqli_prepare($conn, "INSERT INTO user (username, password, is_admin) VALUES (?, ?, ?)");
       mysqli_stmt_bind_param($insertStmt, "ssi", $login_username, $passwordMask, $isAdmin);
 
       mysqli_close($conn);
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
       // Check the members table for regular users
       mysqli_stmt_close($stmt);
-      $stmt = mysqli_prepare($conn, "SELECT * FROM members WHERE login_id = ? AND password = ?");
+      $stmt = mysqli_prepare($conn, "SELECT * FROM membership WHERE login_id = ? AND password = ?");
       mysqli_stmt_bind_param($stmt, "ss", $login_username, $login_password);
       mysqli_stmt_execute($stmt);
       $result = mysqli_stmt_get_result($stmt);

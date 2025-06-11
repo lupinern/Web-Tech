@@ -1,25 +1,6 @@
 <?php
-$db_server = "localhost";
-$db_user = "root";
-$db_password = "";
-$db_name = "brewngo";
-
-// Connect to database
-$conn = mysqli_connect($db_server, $db_user, $db_password, $db_name);
-
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-
-if (mysqli_query($conn, $sql)) {
-  echo "Table 'members' created successfully or already exists";
-} else {
-  echo "Error creating table: " . mysqli_error($conn);
-}
-
-mysqli_close($conn);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>

@@ -34,11 +34,11 @@
 
                 // Check if members table exists and create if needed
                 try {
-                    $tableCheck = $conn->query("SHOW TABLES LIKE 'members'");
+                    $tableCheck = $conn->query("SHOW TABLES LIKE 'membership'");
 
                     if ($tableCheck->num_rows == 0) {
                         // Create members table
-                        $createTableSQL = "CREATE TABLE members (
+                        $createTableSQL = "CREATE TABLE membership (
                             id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                             first_name VARCHAR(50) NOT NULL,
                             last_name VARCHAR(50) NOT NULL,
@@ -73,8 +73,8 @@
                     $password = mysqli_real_escape_string($conn, $_POST['registration-password']);
 
                     // Insert data into database
-                    $sql = "INSERT INTO members (first_name, last_name, email, login_id, password)
-                            VALUES ('$first_name', '$last_name', '$email', '$login_id', '$password')";
+                    $sql = "INSERT INTO membership (first_name, last_name, email, login_id, password)
+        VALUES ('$first_name', '$last_name', '$email', '$login_id', '$password')";
 
                     if (mysqli_query($conn, $sql)) {
                         echo "<h1>Registration Successful!</h1>";
